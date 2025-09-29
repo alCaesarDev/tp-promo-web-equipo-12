@@ -1,0 +1,36 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master.master.cs" Inherits="TPPromoWeb_equipo_12A.Master" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <!-- Header -->
+        <div>
+            <h1>Mi sitio</h1>
+        </div>
+
+        <!-- Menú -->
+        <div>
+            <asp:Menu ID="Menu1" runat="server">
+                <Items>
+                    <asp:MenuItem Text="Home" NavigateUrl="~/Default.aspx" />
+                    <asp:MenuItem Text="Paso 1" NavigateUrl="~/Paso1.aspx" />
+                    <asp:MenuItem Text="Paso 2" NavigateUrl="~/Paso2.aspx" />
+                </Items>
+            </asp:Menu>
+        </div>
+
+        <!-- Contenido dinámico -->
+        <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+
+        <!-- Footer -->
+        <div>
+            <hr />
+            <p>© 2025 - Mi sitio</p>
+        </div>
+    </form>
+</body>
+</html>

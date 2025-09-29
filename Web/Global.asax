@@ -1,0 +1,1 @@
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="TPPromoWeb_equipo_12A.Global" Language="C#" %>
