@@ -1,0 +1,27 @@
+﻿.nav-custom .nav-link,
+.nav-custom .nav-link:hover,
+.nav-custom .nav-link:focus,
+.nav-custom .nav-link:active {
+    color: #fff !important;
+    background-color: transparent !important;
+    text-decoration: none !important;
+}
+
+#Menu1 a,
+#Menu1 a:visited,
+#Menu1 a:hover,
+#Menu1 a:focus,
+#Menu1 a:active {
+    color: #fff !important;
+    background-color: transparent !important;
+    border: 1px solid white !important;
+    border-radius: 5px !important;
+    text-decoration: none !important;
+    font-weight: 500;
+}
+
+#Menu1 a {
+    padding: 0.5rem !important;
+    margin: 0 0.5rem;
+    display: inline-block;
+}

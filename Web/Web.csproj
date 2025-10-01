@@ -126,16 +126,22 @@
           <SubType>ASPXCodeBehind</SubType>
           <DependentUpon>Paso2.aspx</DependentUpon>
         </Compile>
+        <Compile Include="Paso3.aspx.cs">
+          <SubType>ASPXCodeBehind</SubType>
+          <DependentUpon>Paso3.aspx</DependentUpon>
+        </Compile>
         <Compile Include="Properties\AssemblyInfo.cs"/>
     </ItemGroup>
     <ItemGroup>
         <Content Include="Default.aspx" />
+        <Content Include="Estilos\Master.css" />
         <Content Include="favicon.ico"/>
         <Content Include="fonts\glyphicons-halflings-regular.svg"/>
         <Content Include="Global.asax"/>
         <Content Include="Master.master" />
         <Content Include="Paso1.aspx" />
         <Content Include="Paso2.aspx" />
+        <Content Include="Paso3.aspx" />
         <Content Include="Web.config"/>
         <Content Include="Web.Debug.config">
             <DependentUpon>Web.config</DependentUpon>
