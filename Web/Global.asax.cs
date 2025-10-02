@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Web;
 using System.Web.UI;
 
 namespace TPPromoWeb_equipo_12A
@@ -23,7 +24,10 @@ namespace TPPromoWeb_equipo_12A
         {
             Exception exc = Server.GetLastError();
 
-            Session.Add("error", exc.ToString());
+            if (HttpContext.Current != null && HttpContext.Current.Session != null)
+            {
+                Session.Add("error", exc.ToString());
+            }
             //Response.Redirect("Error.aspx");
             Server.Transfer("Error.aspx");
         }

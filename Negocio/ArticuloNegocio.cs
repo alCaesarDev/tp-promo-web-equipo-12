@@ -1,10 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Security.Cryptography.X509Certificates;
 using Dominio;
 using Infraestructura;
 using Negocio.DTO;
+using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Negocio
 {
@@ -289,5 +290,88 @@ namespace Negocio
                 comando.ExecuteNonQuery();
             }
         }
+    
+    
+        public List<Articulo> ListarConRelaciones()
+        {
+            AccesoDatos datos = new AccesoDatos();
+            var articulosDiccionario = new Dictionary<int, Articulo>();
+
+            try
+            {
+                datos.setearConsulta(@"
+                    SELECT
+                        A.Id, A.Codigo, A.Nombre, A.Descripcion, A.Precio,
+                        M.Id AS IdMarca, M.Descripcion AS Marca,
+                        C.Id AS IdCategoria, C.Descripcion AS Categoria,
+                        I.Id AS IdImagen, I.ImagenUrl
+                    FROM
+                        ARTICULOS A
+                    LEFT JOIN
+                        MARCAS M ON A.IdMarca = M.Id
+                    LEFT JOIN
+                        CATEGORIAS C ON A.IdCategoria = C.Id
+                    LEFT JOIN
+                        IMAGENES I ON A.Id = I.IdArticulo
+                    ORDER BY
+                        A.Id, I.Id
+                ");
+
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    int idArticulo = (int)datos.Lector["Id"];
+
+                    if (!articulosDiccionario.TryGetValue(idArticulo, out Articulo articuloActual))
+                    {
+                        articuloActual = new Articulo
+                        {
+                            Id = idArticulo,
+                            Codigo = (string)datos.Lector["Codigo"],
+                            Nombre = (string)datos.Lector["Nombre"],
+                            Descripcion = (string)datos.Lector["Descripcion"],
+                            Precio = (decimal)datos.Lector["Precio"],
+                            Marca = new Marca
+                            {
+                                Id = (int)datos.Lector["IdMarca"],
+                                Descripcion = (string)datos.Lector["Marca"]
+                            },
+                            Categoria = new Categoria
+                            {
+                                Id = (int)datos.Lector["IdCategoria"],
+                                Descripcion = (string)datos.Lector["Categoria"]
+                            },
+                            Imagenes = new List<Imagen>()
+                        };
+                        articulosDiccionario.Add(idArticulo, articuloActual);
+                    }
+
+                    if (!Convert.IsDBNull(datos.Lector["IdImagen"]))
+                    {
+                        Imagen imagen = new Imagen
+                        {
+                            Id = (int)datos.Lector["IdImagen"],
+                            IdArticulo = idArticulo,
+                            ImagenUrl = (string)datos.Lector["ImagenUrl"]
+                        };
+                        articuloActual.Imagenes.Add(imagen);
+                    }
+                }
+
+                return articulosDiccionario.Values.ToList();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al listar artículos con relaciones.", ex);
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+
     }
+
 }

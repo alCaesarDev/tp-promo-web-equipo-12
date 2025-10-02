@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Web.UI;
 
 namespace TPPromoWeb_equipo_12A
