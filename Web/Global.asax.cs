@@ -24,10 +24,8 @@ namespace TPPromoWeb_equipo_12A
         {
             Exception exc = Server.GetLastError();
 
-            if (HttpContext.Current != null && HttpContext.Current.Session != null)
-            {
-                Session.Add("error", exc.ToString());
-            }
+            Application["error"] = exc.ToString();
+
             //Response.Redirect("Error.aspx");
             Server.Transfer("Error.aspx");
         }

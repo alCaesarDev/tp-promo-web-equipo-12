@@ -11,7 +11,10 @@ namespace TPPromoWeb_equipo_12A
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Application["error"] != null)
+            {
+                ltlError.Text = Application["error"].ToString();
+            }
         }
     }
 }

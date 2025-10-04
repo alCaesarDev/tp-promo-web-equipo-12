@@ -143,6 +143,9 @@
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>Paso1.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Paso1.aspx.designer.cs">
+      <DependentUpon>Paso1.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Paso2.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>Paso2.aspx</DependentUpon>
@@ -155,6 +158,9 @@
       <DependentUpon>Paso3.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VoucherValidator.ashx.cs">
+      <DependentUpon>VoucherValidator.ashx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Default.aspx" />
@@ -167,6 +173,7 @@
     <Content Include="Paso1.aspx" />
     <Content Include="Paso2.aspx" />
     <Content Include="Paso3.aspx" />
+    <Content Include="VoucherValidator.ashx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
