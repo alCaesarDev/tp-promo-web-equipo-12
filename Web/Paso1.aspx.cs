@@ -25,7 +25,7 @@ namespace TPPromoWeb_equipo_12A
             }
             else
             {
-                lblVoucherMessage.ForeColor = System.Drawing.Color.Red; 
+                lblVoucherMessage.ForeColor = System.Drawing.Color.Red;
                 lblVoucherMessage.Text = resultadoValidacion;
             }
         }

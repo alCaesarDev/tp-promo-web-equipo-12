@@ -33,7 +33,7 @@
                                 <h5 class="card-title"><%# Eval("Nombre") %></h5>
                                 <p class="card-text text-muted">
                                     <%#
-                                                    Eval("Marca.Descripcion") %>
+    Eval("Marca.Descripcion") %>
                                 </p>
                                   <div class="d-flex justify-content-center align-items-center mt-3">
                                       <asp:Button ID="btnElegir" runat="server" Text="Quiero Este!" CommandName="ElegirPremio"

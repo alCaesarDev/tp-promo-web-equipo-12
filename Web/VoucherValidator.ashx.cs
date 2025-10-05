@@ -16,15 +16,16 @@ namespace TPPromoWeb_equipo_12A
 
             bool esExitoso = (resultado == "OK");
 
-            var respuesta = new { 
-                success = esExitoso, 
-                message = resultado 
+            var respuesta = new
+            {
+                success = esExitoso,
+                message = resultado
             };
 
             context.Response.ContentType = "application/json";
             var jsonSerializer = new JavaScriptSerializer();
             string json = jsonSerializer.Serialize(respuesta);
-            
+
             context.Response.Write(json);
         }
 

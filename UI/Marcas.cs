@@ -38,9 +38,8 @@ namespace UI
 
         protected override void ClickBotonFiltros(object sender, EventArgs e)
         {
-            
         }
-        
+
         protected override string ObtenerTitulo()
         {
             return "Marcas";

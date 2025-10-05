@@ -18,18 +18,17 @@ namespace UI
     public partial class EditarCategoria : Form
     {
         private Categoria categoria;
-        public EditarCategoria( Categoria categoria)
+
+        public EditarCategoria(Categoria categoria)
         {
             InitializeComponent();
             this.categoria = categoria;
             txtModificarDescripcion.Text = categoria.Descripcion;
-            
         }
 
 
         private void btnGuardarMod_Click(object sender, EventArgs e)
         {
-            
             CategoriaNegocio negocio = new CategoriaNegocio();
 
             try
@@ -50,8 +49,6 @@ namespace UI
             {
                 File.WriteAllText("error.log", ex.ToString());
                 MessageBox.Show("Se produjo un error inesperado.Revisa el archivo 'error.log' para ver los detalles.");
-                
-                
             }
         }
 
@@ -60,8 +57,5 @@ namespace UI
         {
             Close();
         }
-
-
-        
     }
 }

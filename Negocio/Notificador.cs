@@ -7,7 +7,7 @@ namespace Negocio
     public class Notificador
     {
         private readonly string remitente = "agustins379@gmail.com";
-        private readonly string claveApp = "sodseibrrgidatai";
+        private readonly string claveApp = "cjkd zqmz iysr uwqo ";
         private readonly string remitenteNombre = "Premio Gana";
 
         public void Notificar(string correoDestino)
@@ -28,7 +28,7 @@ namespace Negocio
                             </p>
                             <p>
                                 <b>¡Gracias por confiar en Promo Gana!</b><br/>
-                                El equipo de Promociones Promo Gana
+                                El equipo de Promo Gana
                             </p>
                         </body>
                     </html>
@@ -41,7 +41,7 @@ namespace Negocio
                 mensaje.Body = cuerpo;
                 mensaje.IsBodyHtml = true;
 
-                SmtpClient smtp = new SmtpClient("smtp.office365.com", 587);
+                SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
                 smtp.Credentials = new NetworkCredential(remitente, claveApp);
                 smtp.EnableSsl = true;
 

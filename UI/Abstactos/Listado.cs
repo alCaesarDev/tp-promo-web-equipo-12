@@ -22,7 +22,7 @@ namespace UI.Abstactos
         protected abstract void ClickBotonVer(object sender, EventArgs e);
 
         protected abstract List<T> ObtenerRegistros();
-        
+
         protected abstract bool MostrarBotonFiltros();
 
         protected abstract void ClickBotonFiltros(object sender, EventArgs e);
@@ -33,7 +33,7 @@ namespace UI.Abstactos
             {
                 List<T> registros = ObtenerRegistros();
                 tabla.DataSource = registros;
-                
+
                 //Si existe al menos un registro, lo selecciono y activo los botones
                 if (registros.Count > 0)
                 {

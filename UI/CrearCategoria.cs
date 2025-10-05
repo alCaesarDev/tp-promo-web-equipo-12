@@ -14,28 +14,22 @@ namespace UI
 {
     public partial class CrearCategoria : Form
     {
-        
         public CrearCategoria()
         {
             InitializeComponent();
-            
         }
-      
-    
+
+
         private void button1_Click(object sender, EventArgs e)
         {
-
             Categoria nuevaCategoria = new Categoria();
             CategoriaNegocio negocio = new CategoriaNegocio();
 
             try
             {
-              
-
                 nuevaCategoria.Descripcion = txtIngreseDescripcion.Text;
                 if (string.IsNullOrEmpty(nuevaCategoria.Descripcion))
                 {
-
                     MessageBox.Show("Debe ingresar una descripcion");
                     return;
                 }
@@ -53,13 +47,10 @@ namespace UI
             }
         }
 
-        
 
         private void button2_Click(object sender, EventArgs e)
         {
             Close();
         }
-
-        
     }
 }

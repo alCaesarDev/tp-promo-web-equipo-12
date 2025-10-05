@@ -13,7 +13,7 @@ namespace UI
             InitializeComponent();
             this.Load += Cargar;
         }
-        
+
         private void Cargar(object sender, EventArgs e)
         {
             txtCodigo.Text = Codigo ?? string.Empty;

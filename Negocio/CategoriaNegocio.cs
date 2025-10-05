@@ -47,18 +47,10 @@ namespace Negocio
             }
 
             return lista;
-
-
-
-
-
-
         }
 
         public void agregar(Categoria categoria)
         {
-
-
             using (SqlConnection conexion = BaseDeDatos.ObtenerConexion())
             {
                 SqlCommand comando = new SqlCommand("INSERT INTO Categorias (Descripcion) VALUES (@Descripcion)", conexion);
@@ -68,11 +60,8 @@ namespace Negocio
         }
 
 
-
-
         public void Modificar(Categoria categoria)
         {
-
             AccesoDatos datos = new AccesoDatos();
             try
             {
@@ -84,7 +73,6 @@ namespace Negocio
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
             finally
@@ -104,7 +92,6 @@ namespace Negocio
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
 

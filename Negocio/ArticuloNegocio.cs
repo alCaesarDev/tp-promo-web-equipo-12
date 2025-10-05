@@ -254,13 +254,14 @@ namespace Negocio
                 conexion?.Close();
             }
         }
-        
+
         public void Modificar(Articulo articulo)
         {
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("update Articulos set Codigo = @codigo, Nombre = @nombre, Descripcion = @descripcion, IdMarca = @idMarca, IdCategoria = @idCategoria, Precio = @precio where Id = @id");
+                datos.setearConsulta(
+                    "update Articulos set Codigo = @codigo, Nombre = @nombre, Descripcion = @descripcion, IdMarca = @idMarca, IdCategoria = @idCategoria, Precio = @precio where Id = @id");
                 datos.setearParametro("@codigo", articulo.Codigo);
                 datos.setearParametro("@nombre", articulo.Nombre);
                 datos.setearParametro("@descripcion", articulo.Descripcion);
@@ -290,8 +291,8 @@ namespace Negocio
                 comando.ExecuteNonQuery();
             }
         }
-    
-    
+
+
         public List<Articulo> ListarConRelaciones()
         {
             AccesoDatos datos = new AccesoDatos();
@@ -370,8 +371,5 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
-
-
     }
-
 }

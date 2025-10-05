@@ -132,7 +132,7 @@ namespace UI
 
         protected override void ClickBotonEliminar(object sender, EventArgs e)
         {
-            if(RegistroSeleccionado != null)
+            if (RegistroSeleccionado != null)
             {
                 ArticuloNegocio negocio = new ArticuloNegocio();
                 Articulo articuloAEliminar = negocio.BuscarPorId(RegistroSeleccionado.Id);

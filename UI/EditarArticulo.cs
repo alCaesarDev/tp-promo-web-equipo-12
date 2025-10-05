@@ -15,11 +15,12 @@ namespace UI
     public partial class EditarArticulo : Form
     {
         private Articulo articulo = null;
+
         public EditarArticulo(Articulo articulo)
         {
             InitializeComponent();
             this.articulo = articulo;
-            Text = "Editar Artículo";
+            Text = "Editar Artï¿½culo";
         }
 
         private void EditarArticulo_Load(object sender, EventArgs e)
@@ -30,10 +31,10 @@ namespace UI
             {
                 cboEditarArticuloCategoria.DataSource = categoriaNegocio.Listar();
                 cboEditarArticuloCategoria.ValueMember = "Id";
-                cboEditarArticuloCategoria.DisplayMember = "Descripción";
+                cboEditarArticuloCategoria.DisplayMember = "Descripciï¿½n";
                 cboMarcaEditarArticulo.DataSource = marcaNegocio.Listar();
                 cboMarcaEditarArticulo.ValueMember = "Id";
-                cboMarcaEditarArticulo.DisplayMember = "Descripción";
+                cboMarcaEditarArticulo.DisplayMember = "Descripciï¿½n";
 
                 if (articulo != null)
                 {
@@ -53,27 +54,27 @@ namespace UI
 
         private void btnCancelarArticuloEditado_Click(object sender, EventArgs e)
         {
-            Close();   
+            Close();
         }
-        
+
         private void btnGuardarArticuloEditado_Click(object sender, EventArgs e)
         {
-           ArticuloNegocio negocio = new ArticuloNegocio();
+            ArticuloNegocio negocio = new ArticuloNegocio();
             try
             {
-                if(string.IsNullOrWhiteSpace(txtEditarCodigoArticulo.Text) || string.IsNullOrEmpty(txtEditarNombreArticulo.Text))
+                if (string.IsNullOrWhiteSpace(txtEditarCodigoArticulo.Text) || string.IsNullOrEmpty(txtEditarNombreArticulo.Text))
                 {
-                    MessageBox.Show("Los campos código y nombre son obligatorios");
+                    MessageBox.Show("Los campos cï¿½digo y nombre son obligatorios");
                     return;
                 }
 
-                if(!decimal.TryParse(txtEditarPrecioArticulo.Text, out decimal precio))
+                if (!decimal.TryParse(txtEditarPrecioArticulo.Text, out decimal precio))
                 {
-                    MessageBox.Show("Ingrese un número valido en campo precio");
+                    MessageBox.Show("Ingrese un nï¿½mero valido en campo precio");
                     return;
                 }
-                
-                if(cboMarcaEditarArticulo.SelectedItem == null)
+
+                if (cboMarcaEditarArticulo.SelectedItem == null)
                 {
                     MessageBox.Show("La marca es requerida");
                     return;
@@ -85,13 +86,13 @@ namespace UI
                 articulo.Precio = precio;
                 articulo.Marca = (Marca)cboMarcaEditarArticulo.SelectedItem;
                 articulo.Categoria = (Categoria)cboEditarArticuloCategoria.SelectedItem;
-                
+
                 negocio.Modificar(articulo);
                 MessageBox.Show("Modificado exitosamente");
                 Close();
             }
 
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Ocurrio un error: " + ex.Message);
             }

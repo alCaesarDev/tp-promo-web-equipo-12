@@ -136,18 +136,26 @@ namespace TPPromoWeb_equipo_12A
                 voucher.IdArticulo = idArticulo;
                 voucher.FechaCanje = DateTime.Today;
                 voucherNegocio.Modificar(voucher);
-                
-                ClientScript.RegisterStartupScript(this.GetType(), "confirm",
-                    "if(confirm('Formulario cargado con exito, gracias por participar')) { __doPostBack('Volver',''); }", true);
 
+                try
+                {
+                    Notificador notificador = new Notificador();
+                    notificador.Notificar(cliente.Email);
+                    ClientScript.RegisterStartupScript(this.GetType(), "confirm",
+                        "if(confirm('Formulario cargado con exito, se ha enviado un email de confirmacion, gracias por participar')) { __doPostBack('Volver',''); }", true);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    ClientScript.RegisterStartupScript(this.GetType(), "confirm",
+                        "if(confirm('Ha ocurrido un error al enviar el email, pero se cargado el formulario con exito.')) { __doPostBack('Volver',''); }", true);
+                }
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
                 MostrarMensaje(e.Message);
             }
-
-       
         }
 
         private bool ValidarFormulario()

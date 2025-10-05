@@ -15,6 +15,7 @@ namespace UI
     public partial class EliminarCategoria : Form
     {
         private Categoria categoriaEliminar;
+
         public EliminarCategoria(Categoria categoria)
         {
             InitializeComponent();
@@ -27,7 +28,6 @@ namespace UI
             this.Close();
         }
 
-       
 
         private void btnEliminarAceptar_Click(object sender, EventArgs e)
         {
@@ -44,8 +44,6 @@ namespace UI
                 MessageBox.Show("Error al eliminar la categoría: " + ex.Message);
                 this.DialogResult = DialogResult.Cancel;
                 this.Close();
-
-               
             }
         }
     }

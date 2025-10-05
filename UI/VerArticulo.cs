@@ -20,6 +20,7 @@ namespace UI
         {
             InitializeComponent();
         }
+
         public VerArticulo(Articulo articulo, List<Imagen> imagenes)
         {
             InitializeComponent();
@@ -29,7 +30,6 @@ namespace UI
 
         private void label1_Click(object sender, EventArgs e)
         {
-
         }
 
         private void VerArticulo_Load(object sender, EventArgs e)

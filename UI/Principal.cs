@@ -11,7 +11,6 @@ namespace UI
 
         private void vistaMarcas_Load(object sender, System.EventArgs e)
         {
-
         }
     }
 }

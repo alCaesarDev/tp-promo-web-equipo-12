@@ -15,7 +15,7 @@ namespace Dominio
         public Categoria Categoria { get; set; }
 
         public Marca Marca { get; set; }
-        
+
         public List<Imagen> Imagenes { get; set; } = new List<Imagen>();
     }
 }

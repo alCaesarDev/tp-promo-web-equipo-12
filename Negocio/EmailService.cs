@@ -25,32 +25,26 @@ namespace Negocio
 
         public void armarCorreo(string emailDestino)
         {
-            
-                email = new MailMessage();
-                email.From = new MailAddress("noresponder@ecommercepremiosganaya.com");
-                email.To.Add(emailDestino);
-                email.IsBodyHtml = true;
-                email.Body = "<h1> Felicidades </h1>" +
-                             "<p>Has ganado un premio en nuestra plataforma .</p>" +
-                             "<p>Atentamente,</p>" +
-                             "<p>El equipo de E-commerce Premios Ganaya</p>";
-
-           
+            email = new MailMessage();
+            email.From = new MailAddress("noresponder@ecommercepremiosganaya.com");
+            email.To.Add(emailDestino);
+            email.IsBodyHtml = true;
+            email.Body = "<h1> Felicidades </h1>" +
+                         "<p>Has ganado un premio en nuestra plataforma .</p>" +
+                         "<p>Atentamente,</p>" +
+                         "<p>El equipo de E-commerce Premios Ganaya</p>";
         }
 
         public void enviarEmail()
         {
-
             try
             {
                 server.Send(email);
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
         }
-
     }
 }

@@ -76,7 +76,7 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
-        
+
         public Voucher Encontrar(string codigoVoucher)
         {
             AccesoDatos datos = new AccesoDatos();
@@ -113,6 +113,5 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
-
     }
 }
