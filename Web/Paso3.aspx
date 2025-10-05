@@ -1,17 +1,13 @@
 ﻿<%@ Page Title="Formulario" Language="C#" MasterPageFile="~/Master.master"
     AutoEventWireup="true" CodeBehind="Paso3.aspx.cs" Inherits="TPPromoWeb_equipo_12A.Paso3" %>
 
-<asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server">
-    <link href="Estilos/Paso3.css" rel="stylesheet" />
-</asp:Content>
-
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container-sm mx-auto">
     <h2>Ingresá tus datos</h2>
 
     <div class="mb-3">
         <label for="dni" class="form-label">DNI</label>
-        <asp:TextBox ID="dni" runat="server" CssClass="form-control" />
+        <asp:TextBox ID="dni" runat="server" AutoPostBack="true" CssClass="form-control" OnTextChanged="BuscarPorDni" TextMode="Number" MaxLength="8"/>
     </div>
 
     <div class="row">
@@ -41,7 +37,7 @@
         </div>
         <div class="col-md-2 mb-3">
             <label for="codigoPostal" class="form-label">CP</label>
-            <asp:TextBox ID="codigoPostal" runat="server" CssClass="form-control" />
+            <asp:TextBox ID="codigoPostal" runat="server" CssClass="form-control" TextMode="Number" MaxLength="4" />
         </div>
     </div>
 

@@ -117,6 +117,10 @@
       <Project>{7e9a680a-112a-4c1c-ba03-752c3511ad6d}</Project>
       <Name>Dominio</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Infraestructura\Infraestructura.csproj">
+      <Project>{218b0adf-0f7e-4719-b727-6103e60084e9}</Project>
+      <Name>Infraestructura</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Negocio\Negocio.csproj">
       <Project>{5b1b8245-3585-49d3-9e94-58c37153c43a}</Project>
       <Name>Negocio</Name>
@@ -139,6 +143,9 @@
     <Compile Include="Master.master.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Master.master.designer.cs">
+      <DependentUpon>Master.master</DependentUpon>
+    </Compile>
     <Compile Include="Paso1.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>Paso1.aspx</DependentUpon>
@@ -155,6 +162,9 @@
     </Compile>
     <Compile Include="Paso3.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Paso3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Paso3.aspx.designer.cs">
       <DependentUpon>Paso3.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

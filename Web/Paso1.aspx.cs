@@ -8,7 +8,7 @@ namespace TPPromoWeb_equipo_12A
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Session.Clear();
         }
 
         protected void btn_voucher_Click(object sender, EventArgs e)
@@ -19,7 +19,8 @@ namespace TPPromoWeb_equipo_12A
 
             if (resultadoValidacion == "OK")
             {
-                lblVoucherMessage.Text = ""; 
+                lblVoucherMessage.Text = "";
+                Session.Add("voucher", numeroVoucher);
                 Response.Redirect("Paso2.aspx");
             }
             else

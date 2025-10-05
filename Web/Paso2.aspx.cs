@@ -13,11 +13,11 @@ namespace TPPromoWeb_equipo_12A
         {
             if (!IsPostBack)
             {
+                Session["idArticuloSeleccionado"] = null;
                 CargarPremios();
-
             }
-
         }
+
         private void CargarPremios()
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
@@ -41,28 +41,29 @@ namespace TPPromoWeb_equipo_12A
             {
                 return imagenes[0].ImagenUrl;
             }
+
             return "";
         }
+
         public string GetFirstImageUrl(object imagenes)
         {
             if (imagenes is List<Dominio.Imagen> listaImagenes && listaImagenes.Any())
             {
                 return listaImagenes[0].ImagenUrl;
             }
+
             return "";
         }
 
         protected void rptArticulos_ItemCommand(object source,
-         System.Web.UI.WebControls.RepeaterCommandEventArgs e)
+            System.Web.UI.WebControls.RepeaterCommandEventArgs e)
         {
             if (e.CommandName == "ElegirPremio")
             {
                 int idArticuloSeleccionado = Convert.ToInt32(e.CommandArgument);
                 Session.Add("idArticuloSeleccionado", idArticuloSeleccionado);
-                Response.Redirect("Paso3.aspx"); // Redirige a la siguiente página
+                Response.Redirect("Paso3.aspx");
             }
         }
-
-
     }
 }
